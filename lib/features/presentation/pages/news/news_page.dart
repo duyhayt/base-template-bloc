@@ -12,6 +12,8 @@ class NewsPage extends StatelessWidget {
       appBar: AppBar(
        title: Text(AppLocalizations.of(context)!.title_news),
         centerTitle: true,
+        elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       body: const Center(
         child: Text("News Page"),

@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_template_bloc/config/routes/routes.gr.dart';
 
+/// Using "flutter pub run build_runner build" to generate route code.
+
 @AutoRouterConfig()
 class AppRouter extends $AppRouter {
   @override
@@ -12,6 +14,5 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: DashboardRoute.page),
         AutoRoute(page: InfoRoute.page),
-        AutoRoute(page: DeepLinkRoute.page),
       ];
 }

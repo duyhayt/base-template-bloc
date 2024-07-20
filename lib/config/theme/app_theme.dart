@@ -1,6 +1,5 @@
 import 'package:base_template_bloc/config/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 enum ThemeType { light, dark }
 
