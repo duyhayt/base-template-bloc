@@ -1,0 +1,15 @@
+{	
+	"langIcon" : "./assets/images/en_flag.png",
+	"title_home" : "Trang chủ",
+	"title_setting" : "Cài đặt",
+	"title_news" : "Tin mới",
+	"setting_address" : "Địa chỉ",
+	"setting_member" : "Thành viên cao cấp",
+	"setting_upgrade" : "Nâng cấp",
+	"setting_theme" : "Chế độ tối",
+	"setting_info" : "Thông tin",
+	"setting_language" : "Ngôn ngữ",
+	"setting_help" : "Trợ giúp",
+	"setting_logout" : "Đăng xuất",
+	"setting_deeplink" : "Lối tắt"
+}

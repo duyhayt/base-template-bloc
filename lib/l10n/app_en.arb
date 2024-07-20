@@ -1,0 +1,15 @@
+{	
+	"langIcon" : "./assets/images/en_flag.png",
+	"title_home" : "Home",
+	"title_setting" : "Setting",
+	"title_news" : "News",
+	"setting_address" : "Address",
+	"setting_member" : "Premium member",
+	"setting_upgrade" : "Upgrade",
+	"setting_theme" : "Theme",
+	"setting_info" : "Information",
+	"setting_language" : "Language",
+	"setting_help" : "Help & Support",
+	"setting_logout" : "Logout",
+	"setting_deeplink" : "HTTP Address"
+}
