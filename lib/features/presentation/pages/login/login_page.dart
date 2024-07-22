@@ -5,7 +5,7 @@ import 'package:base_template_bloc/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage(name: 'LoginRoute')
+@RoutePage()
 class LoginPage extends StatefulWidget implements AutoRouteWrapper {
   const LoginPage({super.key});
 

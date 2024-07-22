@@ -4,7 +4,7 @@ import 'package:base_template_bloc/config/routes/routes.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-@RoutePage(name: 'SplashRoute')
+@RoutePage()
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 

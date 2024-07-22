@@ -4,7 +4,7 @@ import 'package:base_template_bloc/features/presentation/blocs/home/home_state.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-@RoutePage(name: 'HomeRoute')
+@RoutePage()
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

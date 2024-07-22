@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-@RoutePage(name: 'SettingRoute')
+@RoutePage()
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
@@ -49,8 +49,8 @@ class SettingPage extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.only(top: 24),
-              padding: const EdgeInsets.only(
-                  left: 16, top: 8, bottom: 8, right: 16),
+              padding:
+                  const EdgeInsets.only(left: 16, top: 8, bottom: 8, right: 16),
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(4))),
               child: InkWell(
@@ -114,14 +114,7 @@ class SettingPage extends StatelessWidget {
                   ),
                   const Divider(),
                   singleOption(
-                    onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const SongPage(),
-                      //   ),
-                      // );
-                    },
+                    onTap: () {},
                     iconData: Icons.http,
                     option: AppLocalizations.of(context)!.setting_deeplink,
                   ),
