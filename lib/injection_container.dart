@@ -4,10 +4,10 @@ import 'package:base_template_bloc/features/domain/repositories/home_repo.dart';
 import 'package:base_template_bloc/features/domain/repositories/login_repo.dart';
 import 'package:base_template_bloc/features/domain/usecases/home.dart';
 import 'package:base_template_bloc/features/domain/usecases/login.dart';
-import 'package:base_template_bloc/features/presentation/blocs/app/app_bloc.dart';
-import 'package:base_template_bloc/features/presentation/blocs/dashboard/dashboard_cubit.dart';
-import 'package:base_template_bloc/features/presentation/blocs/home/home_bloc.dart';
-import 'package:base_template_bloc/features/presentation/blocs/login/login_bloc.dart';
+import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
+import 'package:base_template_bloc/features/presentation/home/bloc/list_post_cubit.dart';
+import 'package:base_template_bloc/features/presentation/home/bloc/list_user_cubit.dart';
+import 'package:base_template_bloc/features/presentation/login/bloc/login_bloc.dart';
 import 'package:base_template_bloc/l10n/languages/language_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -20,18 +20,19 @@ Future<void> initializeDependencies() async {
 
   // Repository
   sl.registerLazySingleton<LoginRepo>(() => LoginRepoImpl());
-  sl.registerLazySingleton<PostRepo>(() => PostRepoImpl());
+  sl.registerLazySingleton<HomeRepo>(() => HomeRepoImpl());
 
   // Use cases
   sl.registerLazySingleton(() => LoginUseCase(sl()));
-  sl.registerLazySingleton(() => PostUseCase(sl()));
+  sl.registerLazySingleton(() => HomeUseCase(sl()));
 
   // Blocs
   sl.registerFactory(() => LoginBloc(sl()));
-  sl.registerFactory(() => HomeBloc(sl()));
   sl.registerFactory(() => AppBloc());
   sl.registerFactory(() => ServiceBloc());
 
-  //Cubits
-  sl.registerFactory(() => DashboardCubit());
+  /// Cubits
+  // Home
+  sl.registerFactory(() => ListPostCubit(sl()));
+  sl.registerFactory(() => ListUserCubit(sl()));
 }

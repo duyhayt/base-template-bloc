@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_template_bloc/config/routes/routes.gr.dart';
-import 'package:base_template_bloc/features/presentation/blocs/login/login_bloc.dart';
+import 'package:base_template_bloc/features/presentation/login/bloc/login_bloc.dart';
 import 'package:base_template_bloc/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

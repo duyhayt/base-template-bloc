@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:base_template_bloc/config/routes/routes.dart';
 import 'package:base_template_bloc/core/utils/app_bloc_observer.dart';
 import 'package:base_template_bloc/core/utils/logger.dart';
-import 'package:base_template_bloc/features/presentation/blocs/app/app_bloc.dart';
+import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
 import 'package:base_template_bloc/injection_container.dart';
 import 'package:base_template_bloc/l10n/languages/language_bloc.dart';
 import 'package:base_template_bloc/l10n/languages/language_state.dart';

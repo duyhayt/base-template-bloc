@@ -2,14 +2,15 @@ import 'package:base_template_bloc/core/providers/api_endpoint.dart';
 import 'package:base_template_bloc/core/providers/api_provider.dart';
 import 'package:base_template_bloc/core/providers/api_request_representable.dart';
 
-enum Type { fetchPosts }
+enum Type { fetchPosts, fetchUser }
 
-class PostAPI implements APIRequestRepresentable {
+class HomeAPI implements APIRequestRepresentable {
   final Type type;
 
-  const PostAPI._({required this.type});
+  const HomeAPI._({required this.type});
 
-  PostAPI.fetchPosts() : this._(type: Type.fetchPosts);
+  HomeAPI.fetchPosts() : this._(type: Type.fetchPosts);
+  HomeAPI.fetchUser() : this._(type: Type.fetchUser);
 
   @override
   get body => null;
@@ -24,7 +25,14 @@ class PostAPI implements APIRequestRepresentable {
   DioMethod get method => DioMethod.get;
 
   @override
-  String get path => '/posts';
+  String get path {
+    switch (type) {
+      case Type.fetchPosts:
+        return '/posts';
+      case Type.fetchUser:
+        return '/users';
+    }
+  }
 
   @override
   Map<String, String>? get query => null;
