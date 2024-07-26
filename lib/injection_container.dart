@@ -8,6 +8,7 @@ import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_post_cubit.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_user_cubit.dart';
 import 'package:base_template_bloc/features/presentation/login/bloc/login_bloc.dart';
+import 'package:base_template_bloc/features/presentation/todo_list/bloc/todo_list_bloc.dart';
 import 'package:base_template_bloc/l10n/languages/language_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -30,6 +31,7 @@ Future<void> initializeDependencies() async {
   sl.registerFactory(() => LoginBloc(sl()));
   sl.registerFactory(() => AppBloc());
   sl.registerFactory(() => ServiceBloc());
+  sl.registerFactory(() => TodoListBloc());
 
   /// Cubits
   // Home

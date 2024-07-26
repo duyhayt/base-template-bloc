@@ -27,5 +27,6 @@ class AppRouter extends $AppRouter {
           ],
         ),
         AutoRoute(page: InfoRoute.page),
+        AutoRoute(page: TodoListRoute.page),
       ];
 }

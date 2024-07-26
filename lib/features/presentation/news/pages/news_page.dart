@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_template_bloc/config/routes/routes.gr.dart';
+import 'package:base_template_bloc/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -10,14 +12,18 @@ class NewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-       title: Text(AppLocalizations.of(context)!.title_news),
+        title: Text(AppLocalizations.of(context)!.title_news),
         centerTitle: true,
         elevation: 0,
         automaticallyImplyLeading: false,
       ),
-      body: const Center(
-        child: Text("News Page"),
-      ),
+      body: Center(
+          child: Button(
+        title: "Go to Todo List",
+        onPressed: () => context.router.push(
+          const TodoListRoute(),
+        ),
+      )),
     );
   }
 }

@@ -80,10 +80,10 @@ class AppTheme {
     ),
 
     /// CheckBox theme
-    checkboxTheme: CheckboxThemeData(
-      checkColor: WidgetStateProperty.all(const Color(0xffeeeeee)),
-      fillColor: WidgetStateProperty.all(const Color(0xff3C4EC5)),
-    ),
+    // checkboxTheme: CheckboxThemeData(
+    //   checkColor: WidgetStateProperty.all(const Color(0xffeeeeee)),
+    //   fillColor: WidgetStateProperty.all(const Color(0xff3C4EC5)),
+    // ),
 
     /// Radio theme
     radioTheme: RadioThemeData(
