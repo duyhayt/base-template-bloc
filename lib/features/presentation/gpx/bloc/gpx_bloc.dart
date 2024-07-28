@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:base_template_bloc/core/helpers/execute_location.dart';
+import 'package:base_template_bloc/core/utils/file_utils.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:file_picker/file_picker.dart';
@@ -8,6 +9,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:path_provider/path_provider.dart';
 
 part 'gpx_event.dart';
+
 part 'gpx_state.dart';
 
 class GpxBloc extends Bloc<GpxEvent, GpxState> {
@@ -15,8 +17,18 @@ class GpxBloc extends Bloc<GpxEvent, GpxState> {
     on<ImportFile>(_importFile);
     on<ResetFile>(_resetFile);
     on<SaveFile>(_saveFile);
+    on<LoadFileFromLocal>(_loadFileFromLocal);
   }
+
   final LocationAnalysis _locationAnalysis = LocationAnalysis();
+
+  Future<void> _loadFileFromLocal(
+    LoadFileFromLocal event,
+    Emitter<GpxState> emit,
+  ) async {
+    emit(Loading());
+
+  }
 
   Future<void> _importFile(ImportFile event, Emitter<GpxState> emit) async {
     emit(Loading());
@@ -30,19 +42,25 @@ class GpxBloc extends Bloc<GpxEvent, GpxState> {
       final filePath = file.path;
 
       if (filePath != null) {
+        // Kiểm tra phần mở rộng của tệp
+        if (!filePath.toLowerCase().endsWith('.gpx')) {
+          emit(const LoadingError('File must be in GPX format'));
+          return;
+        }
         try {
           // Read the file content
           final fileContent = await File(filePath).readAsString();
-          
-          // Get the directory to save the file
-          final directory = await getApplicationDocumentsDirectory();
-          final localPath = '${directory.path}/${file.name}';
 
-          // Save the file to local storage
-          final localFile = File(localPath);
-          await localFile.writeAsString(fileContent);
-
-          print('File saved to: $localPath');
+          createCacheFolder(folderName: "gpx");
+          // // Get the directory to save the file
+          // final directory = await getApplicationDocumentsDirectory();
+          // final localPath = '${directory.path}/${file.name}';
+          //
+          // // Save the file to local storage
+          // final localFile = File(localPath);
+          // await localFile.writeAsString(fileContent);
+          //
+          // print('File saved to: $localPath');
 
           // Analyze the file content
           final locationModel =

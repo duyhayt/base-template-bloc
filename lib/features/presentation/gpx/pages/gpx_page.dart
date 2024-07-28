@@ -15,7 +15,15 @@ class GpxPage extends StatelessWidget {
         create: (_) => sl<GpxBloc>(),
         child: Scaffold(
           appBar: AppBar(title: const Text("Gpx Page")),
-          body: BlocBuilder<GpxBloc, GpxState>(builder: (context, state) {
+          body: BlocConsumer<GpxBloc, GpxState>(
+            listener: (context, state) {
+              if (state is LoadingError) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(state.message),
+                ));
+              }
+            },
+              builder: (context, state) {
             if (state is Loading) {
               return const Center(
                 child: CircularProgressIndicator(),

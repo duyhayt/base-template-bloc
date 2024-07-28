@@ -14,6 +14,13 @@ class ImportFile extends GpxEvent {
   List<Object> get props => [];
 }
 
+class LoadFileFromLocal extends GpxEvent {
+  const LoadFileFromLocal();
+
+  @override
+  List<Object> get props => [];
+}
+
 class ResetFile extends GpxEvent {
   const ResetFile();
 
