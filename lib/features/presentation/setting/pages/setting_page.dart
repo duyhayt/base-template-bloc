@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_template_bloc/config/routes/routes.gr.dart';
 import 'package:base_template_bloc/config/theme/app_theme.dart';
+import 'package:base_template_bloc/features/presentation/counter/counter_page.dart';
 import 'package:base_template_bloc/l10n/languages/language_bloc.dart';
 import 'package:base_template_bloc/l10n/languages/language_event.dart';
 import 'package:base_template_bloc/l10n/languages/language_state.dart';
@@ -81,6 +82,9 @@ class SettingPage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   singleOption(
+                    onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const CounterPage()));
+                    },
                       iconData: Icons.location_on_outlined,
                       option: AppLocalizations.of(context)!.setting_address),
                   const Divider(),
@@ -114,7 +118,9 @@ class SettingPage extends StatelessWidget {
                   ),
                   const Divider(),
                   singleOption(
-                    onTap: () {},
+                    onTap: () {
+                       context.router.push(const GpxRoute());
+                    },
                     iconData: Icons.http,
                     option: AppLocalizations.of(context)!.setting_deeplink,
                   ),

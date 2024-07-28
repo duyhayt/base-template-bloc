@@ -5,6 +5,8 @@ import 'package:base_template_bloc/features/domain/repositories/login_repo.dart'
 import 'package:base_template_bloc/features/domain/usecases/home.dart';
 import 'package:base_template_bloc/features/domain/usecases/login.dart';
 import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
+import 'package:base_template_bloc/features/presentation/counter/counter_cubit.dart';
+import 'package:base_template_bloc/features/presentation/gpx/bloc/gpx_bloc.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_post_cubit.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_user_cubit.dart';
 import 'package:base_template_bloc/features/presentation/login/bloc/login_bloc.dart';
@@ -32,9 +34,11 @@ Future<void> initializeDependencies() async {
   sl.registerFactory(() => AppBloc());
   sl.registerFactory(() => ServiceBloc());
   sl.registerFactory(() => TodoListBloc());
+  sl.registerFactory(() => GpxBloc());
 
   /// Cubits
   // Home
   sl.registerFactory(() => ListPostCubit(sl()));
   sl.registerFactory(() => ListUserCubit(sl()));
+  sl.registerFactory(() => CounterCubit());
 }

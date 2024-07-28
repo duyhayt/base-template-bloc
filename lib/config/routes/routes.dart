@@ -28,5 +28,6 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(page: InfoRoute.page),
         AutoRoute(page: TodoListRoute.page),
+        AutoRoute(page: GpxRoute.page),
       ];
 }
