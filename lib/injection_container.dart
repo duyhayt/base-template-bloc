@@ -1,15 +1,15 @@
+import 'package:base_template_bloc/core/blocs/app/app_bloc.dart';
+import 'package:base_template_bloc/core/blocs/service/service_bloc.dart';
 import 'package:base_template_bloc/features/data/repositories/home_repo_impl.dart';
 import 'package:base_template_bloc/features/data/repositories/login_repo_impl.dart';
 import 'package:base_template_bloc/features/domain/repositories/home_repo.dart';
 import 'package:base_template_bloc/features/domain/repositories/login_repo.dart';
 import 'package:base_template_bloc/features/domain/usecases/home.dart';
 import 'package:base_template_bloc/features/domain/usecases/login.dart';
-import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_post_cubit.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_user_cubit.dart';
 import 'package:base_template_bloc/features/presentation/login/bloc/login_bloc.dart';
 import 'package:base_template_bloc/features/presentation/todo_list/bloc/todo_list_bloc.dart';
-import 'package:base_template_bloc/l10n/languages/service_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 

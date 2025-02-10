@@ -1,6 +1,6 @@
 import 'package:base_template_bloc/config/theme/app_theme.dart';
-import 'package:base_template_bloc/l10n/languages/service_event.dart';
-import 'package:base_template_bloc/l10n/languages/service_state.dart';
+import 'package:base_template_bloc/core/blocs/service/service_event.dart';
+import 'package:base_template_bloc/core/blocs/service/service_state.dart';
 import 'package:base_template_bloc/l10n/models/language_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';

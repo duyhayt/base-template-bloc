@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:base_template_bloc/config/routes/routes.dart';
+import 'package:base_template_bloc/core/blocs/app/app_bloc.dart';
+import 'package:base_template_bloc/core/blocs/service/service_bloc.dart';
+import 'package:base_template_bloc/core/blocs/service/service_state.dart';
 import 'package:base_template_bloc/core/utils/app_bloc_observer.dart';
 import 'package:base_template_bloc/core/utils/logger.dart';
-import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
 import 'package:base_template_bloc/injection_container.dart';
-import 'package:base_template_bloc/l10n/languages/service_bloc.dart';
-import 'package:base_template_bloc/l10n/languages/service_state.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
