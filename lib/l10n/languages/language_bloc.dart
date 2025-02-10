@@ -8,9 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ServiceBloc extends Bloc<ServiceEvent, ServiceState> {
   ServiceBloc() : super(ServiceState()) {
     on<InitialLanguage>(_initialLanguage);
+    on<InitialTheme>(_initalTheme);
     on<ChangeLanguage>(_changeLanguage);
     on<SaveLanguageInStore>(_saveLanguageInStore);
-    on<InitialTheme>(_initalTheme);
     on<ChangeTheme>(_changeTheme);
     on<SaveThemeInStore>(_saveThemeInStore);
     add(const InitialTheme());

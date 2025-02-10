@@ -7,50 +7,23 @@ class AppTheme {
   static ThemeType themeType = ThemeType.light;
   static TextDirection textDirection = TextDirection.ltr;
 
-  static CustomTheme customTheme = getCustomTheme();
-  static ThemeData theme = getTheme();
-
   AppTheme._();
-
-  static ThemeData getTheme([ThemeType? themeType]) {
-    themeType = themeType ?? AppTheme.themeType;
-    if (themeType == ThemeType.light) return lightTheme;
-    return darkTheme;
-  }
-
-  static CustomTheme getCustomTheme([ThemeType? themeType]) {
-    themeType = themeType ?? AppTheme.themeType;
-    if (themeType == ThemeType.light) return CustomTheme.lightCustomTheme;
-    return CustomTheme.darkCustomTheme;
-  }
 
   /// -------------------------- Light Theme  -------------------------------------------- ///
   static final ThemeData lightTheme = ThemeData(
     fontFamily: 'Montserrat',
-
     useMaterial3: true,
-
-    /// Brightness
     brightness: Brightness.light,
-
-    /// Primary Color
-    primaryColor: const Color(0xff3C4EC5),
-    scaffoldBackgroundColor: const Color(0xffffffff),
-
-    /// AppBar Theme
+    // Colors
+    primaryColor: CustomTheme.lightPrimaryColor,
+    scaffoldBackgroundColor: CustomTheme.lightScaffoldBackgroundColor,
     appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xffffffff),
         iconTheme: IconThemeData(color: Color(0xff495057)),
         actionsIconTheme: IconThemeData(color: Color(0xff495057))),
 
-    /// Card Theme
     cardTheme: const CardTheme(color: Color(0xfff0f0f0)),
     cardColor: const Color(0xfff0f0f0),
-
-    // textTheme: TextTheme(
-    //     titleLarge: GoogleFonts.aBeeZee(), bodyLarge: GoogleFonts.abel()),
-
-    /// Floating Action Theme
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: const Color(0xff3C4EC5),
         splashColor: const Color(0xffeeeeee).withAlpha(100),
@@ -59,17 +32,11 @@ class AppTheme {
         focusColor: const Color(0xff3C4EC5),
         hoverColor: const Color(0xff3C4EC5),
         foregroundColor: const Color(0xffeeeeee)),
-
-    /// Divider Theme
     dividerTheme:
         const DividerThemeData(color: Color(0xffe8e8e8), thickness: 1),
     dividerColor: const Color(0xffe8e8e8),
-
-    // Bottom AppBar Theme
     bottomAppBarTheme:
         const BottomAppBarTheme(color: Color(0xffeeeeee), elevation: 2),
-
-    /// Tab bar Theme
     tabBarTheme: const TabBarTheme(
       unselectedLabelColor: Color(0xff495057),
       labelColor: Color(0xff3d63ff),
@@ -78,19 +45,9 @@ class AppTheme {
         borderSide: BorderSide(color: Color(0xff3d63ff), width: 2.0),
       ),
     ),
-
-    /// CheckBox theme
-    // checkboxTheme: CheckboxThemeData(
-    //   checkColor: WidgetStateProperty.all(const Color(0xffeeeeee)),
-    //   fillColor: WidgetStateProperty.all(const Color(0xff3C4EC5)),
-    // ),
-
-    /// Radio theme
     radioTheme: RadioThemeData(
       fillColor: WidgetStateProperty.all(const Color(0xff3C4EC5)),
     ),
-
-    ///Switch Theme
     switchTheme: SwitchThemeData(
       trackColor: WidgetStateProperty.resolveWith((state) {
         const Set<WidgetState> interactiveStates = <WidgetState>{
@@ -117,8 +74,6 @@ class AppTheme {
         return null;
       }),
     ),
-
-    /// Slider Theme
     sliderTheme: SliderThemeData(
       activeTrackColor: const Color(0xff3d63ff),
       inactiveTrackColor: const Color(0xff3d63ff).withAlpha(140),
@@ -134,8 +89,6 @@ class AppTheme {
         color: Color(0xffeeeeee),
       ),
     ),
-
-    /// Other Colors
     splashColor: Colors.white.withAlpha(100),
     indicatorColor: const Color(0xffeeeeee),
     highlightColor: const Color(0xffeeeeee),
@@ -148,26 +101,15 @@ class AppTheme {
   /// -------------------------- Dark Theme  -------------------------------------------- ///
   static final ThemeData darkTheme = ThemeData(
     fontFamily: 'Montserrat',
-
     useMaterial3: true,
-
-    /// Brightness
     brightness: Brightness.dark,
 
-    /// Primary Color
-    primaryColor: const Color(0xff069DEF),
-
-    /// Scaffold and Background color
-    scaffoldBackgroundColor: const Color(0xff161616),
-
-    /// AppBar Theme
+    /// Colors
+    primaryColor: CustomTheme.darkPrimaryColor,
+    scaffoldBackgroundColor: CustomTheme.darkScaffoldBackgroundColor,
     appBarTheme: const AppBarTheme(backgroundColor: Color(0xff161616)),
-
-    /// Card Theme
     cardTheme: const CardTheme(color: Color(0xff222327)),
     cardColor: const Color(0xff222327),
-
-    /// Input (Text-Field) Theme
     inputDecorationTheme: const InputDecorationTheme(
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -181,13 +123,9 @@ class AppTheme {
           borderRadius: BorderRadius.all(Radius.circular(4)),
           borderSide: BorderSide(width: 1, color: Colors.white70)),
     ),
-
-    /// Divider Color
     dividerTheme:
         const DividerThemeData(color: Color(0xff363636), thickness: 1),
     dividerColor: const Color(0xff363636),
-
-    /// Floating Action Theme
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: const Color(0xff069DEF),
         splashColor: Colors.white.withAlpha(100),
@@ -196,12 +134,8 @@ class AppTheme {
         focusColor: const Color(0xff069DEF),
         hoverColor: const Color(0xff069DEF),
         foregroundColor: Colors.white),
-
-    /// Bottom AppBar Theme
     bottomAppBarTheme:
         const BottomAppBarTheme(color: Color(0xff464c52), elevation: 2),
-
-    /// Tab bar Theme
     tabBarTheme: const TabBarTheme(
       unselectedLabelColor: Color(0xff495057),
       labelColor: Color(0xff069DEF),
@@ -210,8 +144,6 @@ class AppTheme {
         borderSide: BorderSide(color: Color(0xff069DEF), width: 2.0),
       ),
     ),
-
-    ///Switch Theme
     switchTheme: SwitchThemeData(
       trackColor: WidgetStateProperty.resolveWith((state) {
         const Set<WidgetState> interactiveStates = <WidgetState>{
@@ -238,8 +170,6 @@ class AppTheme {
         return null;
       }),
     ),
-
-    /// Slider Theme
     sliderTheme: SliderThemeData(
       activeTrackColor: const Color(0xff069DEF),
       inactiveTrackColor: const Color(0xff069DEF).withAlpha(100),
@@ -255,8 +185,6 @@ class AppTheme {
         color: Colors.white,
       ),
     ),
-
-    ///Other Color
     indicatorColor: Colors.white,
     disabledColor: const Color(0xffa3a3a3),
     highlightColor: Colors.white.withAlpha(28),
@@ -266,27 +194,4 @@ class AppTheme {
         .copyWith(surface: const Color(0xff161616))
         .copyWith(error: Colors.orange),
   );
-
-  static ThemeData createThemeM3(ThemeType themeType, Color seedColor) {
-    if (themeType == ThemeType.light) {
-      return lightTheme.copyWith(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: seedColor, brightness: Brightness.light));
-    }
-    return darkTheme.copyWith(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: seedColor,
-            brightness: Brightness.dark,
-            // ignore: deprecated_member_use
-            onBackground: const Color(0xFFDAD9CA)));
-  }
-
-  static ThemeData createTheme(ColorScheme colorScheme) {
-    if (themeType != ThemeType.light) {
-      return darkTheme.copyWith(
-        colorScheme: colorScheme,
-      );
-    }
-    return lightTheme.copyWith(colorScheme: colorScheme);
-  }
 }

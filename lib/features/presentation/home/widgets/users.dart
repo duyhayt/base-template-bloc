@@ -1,6 +1,7 @@
 import 'package:base_template_bloc/features/presentation/home/bloc/list_user_cubit.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_user_state.dart';
 import 'package:base_template_bloc/injection_container.dart';
+import 'package:base_template_bloc/widgets/custom_loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +15,7 @@ class ListUser extends StatelessWidget {
       child:
           BlocBuilder<ListUserCubit, ListUserState>(builder: (context, state) {
         if (state is ListUserLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CustomLoadingAnimation());
         } else if (state is ListUserLoaded) {
           return ListView.builder(
             itemCount: state.users.length,

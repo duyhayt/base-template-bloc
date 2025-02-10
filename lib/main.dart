@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:base_template_bloc/config/routes/routes.dart';
 import 'package:base_template_bloc/core/utils/app_bloc_observer.dart';
 import 'package:base_template_bloc/core/utils/logger.dart';
@@ -6,11 +7,12 @@ import 'package:base_template_bloc/features/presentation/app/app_bloc.dart';
 import 'package:base_template_bloc/injection_container.dart';
 import 'package:base_template_bloc/l10n/languages/language_bloc.dart';
 import 'package:base_template_bloc/l10n/languages/language_state.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Future<void> main() async {
   logger.runLogging(
@@ -19,12 +21,12 @@ Future<void> main() async {
         WidgetsFlutterBinding.ensureInitialized();
         Bloc.transformer = bloc_concurrency.sequential();
         Bloc.observer = const AppBlocObserver();
-        // Cấu hình dependencies
-        await initializeDependencies();
+        await initializeDependencies(); // DI
         runApp(MultiBlocProvider(providers: [
           BlocProvider(create: (context) => sl<AppBloc>()),
           BlocProvider(create: (context) => sl<ServiceBloc>()),
         ], child: MyApp()));
+        configLoading();
       },
       logger.logZoneError,
     ),
@@ -34,8 +36,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  final appRouter =
-      AppRouter(); // Nếu đặt trong build thì khi ấn hot reload => build lại toàn bộ dự án
+  final appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,18 @@ class MyApp extends StatelessWidget {
           Locale('en'),
           Locale('vi'),
         ],
+        builder: EasyLoading.init(),
       );
     });
   }
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..indicatorType = EasyLoadingIndicatorType.threeBounce
+    ..loadingStyle = EasyLoadingStyle.custom
+    ..radius = 10.0
+    ..userInteractions = false
+    ..dismissOnTap = false
+    ..animationStyle = EasyLoadingAnimationStyle.scale;
 }

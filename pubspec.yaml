@@ -51,6 +51,10 @@ dependencies:
   #animation
   lottie: ^3.1.2
 
+  #loading
+  flutter_easyloading: ^3.0.5
+  loading_indicator: ^3.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

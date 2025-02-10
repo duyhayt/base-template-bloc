@@ -1,6 +1,7 @@
 import 'package:base_template_bloc/features/presentation/home/bloc/list_post_cubit.dart';
 import 'package:base_template_bloc/features/presentation/home/bloc/list_post_state.dart';
 import 'package:base_template_bloc/injection_container.dart';
+import 'package:base_template_bloc/widgets/custom_loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +15,7 @@ class ListPost extends StatelessWidget {
       child:
           BlocBuilder<ListPostCubit, ListPostState>(builder: (context, state) {
         if (state is ListPostLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CustomLoadingAnimation());
         } else if (state is ListPostLoaded) {
           return ListView.builder(
             itemCount: state.posts.length,
