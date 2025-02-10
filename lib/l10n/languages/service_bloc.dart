@@ -1,6 +1,6 @@
 import 'package:base_template_bloc/config/theme/app_theme.dart';
-import 'package:base_template_bloc/l10n/languages/language_event.dart';
-import 'package:base_template_bloc/l10n/languages/language_state.dart';
+import 'package:base_template_bloc/l10n/languages/service_event.dart';
+import 'package:base_template_bloc/l10n/languages/service_state.dart';
 import 'package:base_template_bloc/l10n/models/language_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,20 +42,23 @@ class ServiceBloc extends Bloc<ServiceEvent, ServiceState> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String? theme = sharedPreferences.getString("theme");
     if (theme == null || theme == ThemeType.light.name) {
-      emit(state.copyWith(themeData: AppTheme.lightTheme));
+      emit(state.copyWith(
+          themeType: ThemeType.light, themeData: AppTheme.lightTheme));
     } else {
-      emit(state.copyWith(themeData: AppTheme.darkTheme));
+      emit(state.copyWith(
+          themeType: ThemeType.dark, themeData: AppTheme.darkTheme));
     }
   }
 
   _changeTheme(ChangeTheme event, Emitter<ServiceState> emit) async {
-    emit(state.copyWith(themeData: event.themeData));
+    final themeType =
+        state.themeType == ThemeType.light ? ThemeType.dark : ThemeType.light;
+    emit(state.copyWith(themeType: themeType, themeData: event.themeData));
     add(const SaveThemeInStore());
   }
 
-  _saveThemeInStore(
-      SaveThemeInStore event, Emitter<ServiceState> emit) async {
+  _saveThemeInStore(SaveThemeInStore event, Emitter<ServiceState> emit) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.setString("theme", state.themeData.brightness.name);
+    sharedPreferences.setString("theme", state.themeType.name);
   }
 }

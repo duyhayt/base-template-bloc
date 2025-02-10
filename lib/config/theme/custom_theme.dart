@@ -18,6 +18,7 @@ class CustomTheme {
   /// Colors
   static Color shimmerBaseColor = const Color(0xFFF5F5F5);
   static Color shimmerHighlightColor = const Color(0xFFE0E0E0);
+  static Color errorColor = const Color(0xfff8575e);
 
   /// Light color
 

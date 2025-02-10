@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_template_bloc/config/routes/routes.gr.dart';
 import 'package:base_template_bloc/config/theme/app_theme.dart';
-import 'package:base_template_bloc/l10n/languages/language_bloc.dart';
-import 'package:base_template_bloc/l10n/languages/language_event.dart';
-import 'package:base_template_bloc/l10n/languages/language_state.dart';
+import 'package:base_template_bloc/l10n/languages/service_bloc.dart';
+import 'package:base_template_bloc/l10n/languages/service_event.dart';
+import 'package:base_template_bloc/l10n/languages/service_state.dart';
 import 'package:base_template_bloc/l10n/models/language_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -253,7 +253,7 @@ class SettingPage extends StatelessWidget {
               builder: (context, state) {
                 return CupertinoSwitch(
                   activeColor: Colors.blueAccent,
-                  value: state.themeData == AppTheme.darkTheme,
+                  value: state.themeType == ThemeType.dark,
                   onChanged: (value) {
                     context.read<ServiceBloc>().add(ChangeTheme(
                         themeData:
