@@ -1,26 +1,21 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:base_template_bloc/config/routes/routes.gr.dart';
 import 'package:base_template_bloc/config/theme/app_theme.dart';
 import 'package:base_template_bloc/core/blocs/service/service_bloc.dart';
 import 'package:base_template_bloc/core/blocs/service/service_event.dart';
 import 'package:base_template_bloc/core/blocs/service/service_state.dart';
 import 'package:base_template_bloc/l10n/models/language_model.dart';
+import 'package:base_template_bloc/widgets/custom/custom_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-@RoutePage()
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          elevation: 0,
-          centerTitle: true,
+        appBar: CustomAppBar(
           title: Text(AppLocalizations.of(context)!.title_setting),
         ),
         body: ListView(
@@ -96,9 +91,7 @@ class SettingPage extends StatelessWidget {
                   ),
                   const Divider(),
                   singleOption(
-                    onTap: () {
-                      context.router.push(const InfoRoute());
-                    },
+                    onTap: () {},
                     iconData: Icons.info_outlined,
                     option: AppLocalizations.of(context)!.setting_info,
                   ),
@@ -129,10 +122,7 @@ class SettingPage extends StatelessWidget {
                             horizontal: 16,
                             vertical: 8,
                           ))),
-                      onPressed: () {
-                        // ignore: deprecated_member_use
-                        context.router.pop(const LoginRoute());
-                      },
+                      onPressed: () {},
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[

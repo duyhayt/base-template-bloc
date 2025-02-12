@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:base_template_bloc/config/routes/routes.dart';
+import 'package:base_template_bloc/config/navigation/app_navigation.dart';
 import 'package:base_template_bloc/core/blocs/app/app_bloc.dart';
 import 'package:base_template_bloc/core/blocs/service/service_bloc.dart';
 import 'package:base_template_bloc/core/blocs/service/service_state.dart';
@@ -25,7 +25,7 @@ Future<void> main() async {
         runApp(MultiBlocProvider(providers: [
           BlocProvider(create: (context) => sl<AppBloc>()),
           BlocProvider(create: (context) => sl<ServiceBloc>()),
-        ], child: MyApp()));
+        ], child: const MyApp()));
         configLoading();
       },
       logger.logZoneError,
@@ -35,14 +35,13 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final appRouter = AppRouter();
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ServiceBloc, ServiceState>(builder: (context, state) {
       return MaterialApp.router(
-        routerConfig: appRouter.config(),
+        routerConfig: AppNavigation.router,
         title: 'Flutter',
         debugShowCheckedModeBanner: false,
         theme: state.themeData,

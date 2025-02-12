@@ -40,7 +40,7 @@ dependencies:
   shared_preferences: ^2.0.15
 
   #routes
-  auto_route: ^7.2.0
+  go_router: ^14.8.0
 
   #image
   cached_network_image: ^3.3.1

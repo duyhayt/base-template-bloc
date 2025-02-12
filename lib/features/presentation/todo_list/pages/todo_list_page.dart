@@ -1,11 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:base_template_bloc/features/presentation/todo_list/bloc/todo_list_bloc.dart';
 import 'package:base_template_bloc/injection_container.dart';
 import 'package:base_template_bloc/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage()
 class TodoListPage extends StatelessWidget {
   const TodoListPage({super.key});
 
